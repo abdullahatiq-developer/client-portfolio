@@ -68,23 +68,26 @@
         gsap.to(navUl, { opacity: navUl.classList.contains('active') ? 1 : 0, duration: 0.3 });
       });
 
-      // Smooth scrolling without collapsing menu
+      // Handle nav link clicks for mobile
       document.querySelectorAll('nav a').forEach(anchor => {
-        anchor.addEventListener('click', e => {
-          e.preventDefault();
+        anchor.addEventListener('click', (e) => {
           const sectionId = anchor.getAttribute('href');
           const targetSection = document.querySelector(sectionId);
           if (targetSection) {
+            e.preventDefault(); // Prevent default anchor behavior
+            // Collapse the menu on mobile
+            if (window.innerWidth <= 768) {
+              menuToggle.classList.remove('active');
+              navUl.classList.remove('active');
+              gsap.to(navUl, { opacity: 0, duration: 0.3 });
+            }
+            // Smooth scroll to the target section
             targetSection.scrollIntoView({ behavior: 'smooth' });
-            // Optionally close the menu if desired
-            // menuToggle.classList.remove('active');
-            // navUl.classList.remove('active');
-            // gsap.to(navUl, { opacity: 0, duration: 0.3 });
           }
         });
       });
 
-      document.addEventListener('click', e => {
+      document.addEventListener('click', (e) => {
         if (!navUl.contains(e.target) && !menuToggle.contains(e.target) && navUl.classList.contains('active')) {
           menuToggle.classList.remove('active');
           navUl.classList.remove('active');
