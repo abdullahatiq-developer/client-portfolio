@@ -1,0 +1,59 @@
+.toggleButton {
+    position: fixed;
+    bottom: var(--space-8);
+    right: var(--space-8);
+    width: 56px;
+    height: 56px;
+    border-radius: var(--radius-lg);
+    background: rgba(18, 18, 26, 0.7);
+    backdrop-filter: var(--blur-lg) saturate(180%);
+    -webkit-backdrop-filter: var(--blur-lg) saturate(180%);
+    border: 1px solid var(--glass-border);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-lg);
+    z-index: var(--z-fixed);
+    transition: all var(--transition-base);
+}
+
+.toggleButton:hover {
+    background: rgba(26, 26, 36, 0.8);
+    border-color: var(--glass-border-strong);
+    box-shadow: var(--shadow-xl), var(--shadow-glow-blue);
+    transform: scale(1.05);
+}
+
+.toggleButton:active {
+    transform: scale(0.95);
+}
+
+.iconWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--text-xl);
+    color: var(--text-primary);
+    transition: transform var(--transition-base);
+}
+
+.iconWrapper i {
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+@media (max-width: 768px) {
+    .toggleButton {
+        width: 48px;
+        height: 48px;
+        bottom: var(--space-6);
+        right: var(--space-6);
+    }
+
+    .iconWrapper {
+        font-size: var(--text-lg);
+    }
+}

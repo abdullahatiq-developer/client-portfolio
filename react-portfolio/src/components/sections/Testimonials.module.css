@@ -1,0 +1,89 @@
+.testimonials {
+    padding: var(--space-24) 0;
+    background: var(--bg-secondary);
+    position: relative;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--space-8);
+    margin-top: var(--space-12);
+}
+
+.testimonialCard {
+    padding: var(--space-10);
+    background: rgba(18, 18, 26, 0.6);
+    backdrop-filter: var(--blur-lg) saturate(180%);
+    -webkit-backdrop-filter: var(--blur-lg) saturate(180%);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-base);
+    position: relative;
+}
+
+.testimonialCard:hover {
+    transform: translateY(-6px);
+    border-color: var(--glass-border-strong);
+    background: rgba(26, 26, 36, 0.7);
+    box-shadow: var(--shadow-xl);
+}
+
+.quoteIcon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 122, 255, 0.1);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--space-6);
+}
+
+.quoteIcon i {
+    font-size: var(--text-2xl);
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.quote {
+    font-size: var(--text-lg);
+    line-height: var(--leading-relaxed);
+    color: var(--text-secondary);
+    font-style: italic;
+    margin-bottom: var(--space-6);
+}
+
+.divider {
+    width: 50px;
+    height: 3px;
+    background: var(--gradient-accent);
+    border-radius: var(--radius-full);
+    margin: var(--space-6) 0;
+}
+
+.author {
+    font-size: var(--text-sm);
+    color: var(--text-tertiary);
+    font-weight: var(--font-medium);
+    letter-spacing: var(--tracking-wide);
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .testimonials {
+        padding: var(--space-16) 0;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-6);
+    }
+
+    .testimonialCard {
+        padding: var(--space-8);
+    }
+}

@@ -1,0 +1,101 @@
+.education {
+    padding: var(--space-24) 0;
+    background: var(--bg-secondary);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--space-8);
+    margin-top: var(--space-12);
+}
+
+.card {
+    padding: var(--space-10);
+    background: rgba(18, 18, 26, 0.6);
+    backdrop-filter: var(--blur-lg) saturate(180%);
+    -webkit-backdrop-filter: var(--blur-lg) saturate(180%);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-base);
+    position: relative;
+    overflow: hidden;
+}
+
+.card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--gradient-accent);
+    opacity: 0;
+    transition: opacity var(--transition-base);
+}
+
+.card:hover::after {
+    opacity: 1;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    border-color: var(--glass-border-strong);
+    background: rgba(26, 26, 36, 0.7);
+    box-shadow: var(--shadow-xl);
+}
+
+.iconWrapper {
+    width: 64px;
+    height: 64px;
+    background: var(--gradient-accent);
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--space-6);
+    box-shadow: var(--shadow-glow-blue);
+}
+
+.iconWrapper i {
+    font-size: var(--text-3xl);
+    color: white;
+}
+
+.card h3 {
+    font-size: var(--text-xl);
+    font-weight: var(--font-semibold);
+    color: var(--text-primary);
+    margin-bottom: var(--space-3);
+    letter-spacing: var(--tracking-tight);
+}
+
+.institution {
+    font-size: var(--text-sm);
+    color: var(--text-tertiary);
+    margin-bottom: var(--space-4);
+    font-weight: var(--font-medium);
+}
+
+.description {
+    font-size: var(--text-base);
+    line-height: var(--leading-relaxed);
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .education {
+        padding: var(--space-16) 0;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-6);
+    }
+
+    .card {
+        padding: var(--space-8);
+    }
+}
